@@ -11,7 +11,7 @@ const Artist = ({ name, image, id, navigate }) => {
       <div>
         <div className="infos">
           <div className="title">
-            <h1>{name}</h1>
+            <span>{name}</span>
           </div>
         </div>
       </div>
