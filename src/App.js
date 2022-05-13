@@ -3,7 +3,6 @@ import "./App.css";
 import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import { MainLayout } from "./Layout/MainLayout";
 import { HomePage } from "./Pages/HomePage";
-
 import { Callback } from "./Pages/Callback";
 import { Dashboard } from "./Pages/Dashboard";
 import { AlbumsPage } from "./Pages/AlbumsPage";
