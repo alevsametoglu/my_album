@@ -40,8 +40,12 @@ const Header = () => {
           ) : (
             <i className="fa fa-user-circle"></i>
           )}
-          <span>{authState.displayName}</span>
-          <button onClick={logout}>X</button>
+          <div className="user">
+            <span>{authState.displayName}</span>
+            <span className="logout" onClick={logout}>
+              logout
+            </span>
+          </div>
         </div>
       ) : (
         <a href={url} className="sing-in">
