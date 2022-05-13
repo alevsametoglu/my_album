@@ -1,0 +1,17 @@
+.dashboard-page {
+  background-color: #222326;
+  height: calc(100vh - 132px);
+  padding: 20px;
+  position: relative;
+  h1 {
+    color: white;
+    font-family: "Montserrat", sans-serif;
+  }
+  .search {
+    position: absolute;
+    right: 40px;
+  }
+  .artist-list {
+    padding: 20px;
+  }
+}
