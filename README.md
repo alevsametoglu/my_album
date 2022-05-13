@@ -14,10 +14,14 @@ it is an app to display an artist's albums via the Spotify API.
 # Install dependencies
 npm install
 
-# Start local dev server
+# Start local
 npm start
+```
 
 ## API Documentation
 
 To learn more about how the API works, you can visit: https://developer.spotify.com/documentation/web-api/
+
+```
+
 ```
