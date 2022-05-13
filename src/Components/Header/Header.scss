@@ -13,11 +13,17 @@
     img {
       border-radius: 50%;
       height: 80px;
+      @media screen and (max-width: 450px) {
+        height: 50px;
+      }
     }
     p {
       font-size: 26px;
       color: white;
       padding: 5px;
+      @media screen and (max-width: 450px) {
+        font-size: 20px;
+      }
     }
   }
   .profile {
@@ -30,16 +36,33 @@
       width: 50px;
       border-radius: 50%;
       object-fit: cover;
+      @media screen and (max-width: 450px) {
+        padding: 10px;
+        height: 40px;
+      }
     }
-    button {
-      padding: 5px;
-      border-radius: 50%;
-      color: black;
-      background-color: #3fa7dc;
+    .user {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      @media screen and (max-width: 450px) {
+        font-size: 14px;
+        flex-direction: row;
+      }
+    }
+    .logout {
+      margin: 5px;
+      color: white;
+      text-decoration: underline;
       cursor: pointer;
       font-weight: bold;
-      font-size: 14px;
-      border: none;
+      font-size: 16px;
+      font-family: "Montserrat", sans-serif;
+      @media screen and (max-width: 450px) {
+        font-size: 12px;
+        flex-direction: row;
+      }
     }
   }
   .sing-in {
@@ -51,6 +74,9 @@
     margin-right: 20px;
     text-decoration: none;
     cursor: pointer;
+    @media screen and (max-width: 450px) {
+      font-size: 20px;
+    }
     i {
       color: #3fa7dc;
     }

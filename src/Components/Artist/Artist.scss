@@ -12,18 +12,28 @@
   margin-top: 60px;
   text-decoration: none;
   cursor: pointer;
+  @media screen and (max-width: 450px) {
+    height: 90px;
+    margin-top: 40px;
+  }
   img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
+    @media screen and (max-width: 450px) {
+      height: 80px;
+      width: 80px;
+      padding: 5px;
+    }
   }
   .infos {
-    .infos-details {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 20px;
+    .title {
+      font-size: 36px;
+
+      @media screen and (max-width: 450px) {
+        font-size: 24px;
+      }
     }
   }
 }

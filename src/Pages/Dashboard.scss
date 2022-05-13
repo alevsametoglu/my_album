@@ -1,11 +1,24 @@
 .dashboard-page {
   background-color: #222326;
-  height: calc(100vh - 132px);
+  // height: calc(100vh - 132px);
   padding: 20px;
   position: relative;
-  h1 {
+  .results {
     color: white;
+    font-weight: bold;
     font-family: "Montserrat", sans-serif;
+    font-size: 28px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    @media screen and (max-width: 450px) {
+      font-size: 20px;
+    }
+    span {
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
   }
   .search {
     position: absolute;
