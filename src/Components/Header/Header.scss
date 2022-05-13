@@ -1,12 +1,58 @@
 .header {
   background-color: black;
-  color: wheat;
+  color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
   .logo-header {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
     img {
-      height: 100px;
+      border-radius: 50%;
+      height: 80px;
+    }
+    p {
+      font-size: 26px;
+      color: white;
+      padding: 5px;
+    }
+  }
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    img {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    button {
+      padding: 5px;
+      border-radius: 50%;
+      color: black;
+      background-color: #3fa7dc;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      border: none;
+    }
+  }
+  .sing-in {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 26px;
+    color: white;
+    margin-right: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    i {
+      color: #3fa7dc;
     }
   }
 }
