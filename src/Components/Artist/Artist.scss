@@ -1,0 +1,29 @@
+.album {
+  color: white;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  background-color: #515166;
+  opacity: 0.7;
+  border-radius: 10px;
+  gap: 30px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  margin-top: 60px;
+  text-decoration: none;
+  cursor: pointer;
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .infos {
+    .infos-details {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+    }
+  }
+}
