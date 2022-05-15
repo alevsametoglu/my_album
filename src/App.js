@@ -1,24 +1,39 @@
-import "./App.css";
+import "./App.scss";
 
-import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router, Navigate } from "react-router-dom";
 import { MainLayout } from "./Layout/MainLayout";
-import { HomePage } from "./Pages/HomePage";
+
 import { Callback } from "./Pages/Callback";
 import { Dashboard } from "./Pages/Dashboard";
-import { AlbumsPage } from "./Pages/AlbumsPage";
-import { TrackPage } from "./Pages/TrackPage";
+import { LoginPage } from "./Pages/LoginPage";
+import { ArtistPage } from "./Pages/ArtistPage/ArtistPage";
+
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { authActions } from "./redux/authSlice";
+import { userActions } from "./redux/userSlice";
 
 function App() {
+  const authState = useSelector((s) => s.auth);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (authState.token) {
+      dispatch(authActions.loadProfile());
+      dispatch(userActions.loadFavoriteArtists());
+      dispatch(userActions.loadFavoriteTracks());
+    }
+  }, []);
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/callback" element={<Callback />} />
-          <Route path="/artist/:id" element={<AlbumsPage />} />
-          <Route path="/artist/:id/track" element={<TrackPage />} />
+          <Route index element={authState.isAuth ? <Dashboard /> : <Navigate replace to="/login" />} />
+          <Route path="/artist/:id" element={authState.isAuth ? <ArtistPage /> : <Navigate replace to="/login" />} />
         </Route>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/callback" element={<Callback />} />
       </Routes>
     </Router>
   );
