@@ -33,11 +33,11 @@ const scrollFunction = (element, event) => {
 
 const addScrollXEventListener = () => {
   const element = document.querySelector("#scroll-x");
-  element.addEventListener("wheel", (event) => scrollFunction(element, event));
+  element?.addEventListener("wheel", (event) => scrollFunction(element, event));
 };
 const removeScrollXEventListener = () => {
   const element = document.querySelector("#scroll-x");
-  element.removeEventListener("wheel", (event) => scrollFunction(element, event));
+  element?.removeEventListener("wheel", (event) => scrollFunction(element, event));
 };
 
 export const util = {
