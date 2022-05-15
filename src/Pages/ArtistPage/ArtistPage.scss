@@ -1,0 +1,14 @@
+.artist-page {
+  padding: 20px;
+
+  .artist-profile {
+    color: white;
+    display: flex;
+    font-size: 40px;
+    img {
+      height: 200px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+}
