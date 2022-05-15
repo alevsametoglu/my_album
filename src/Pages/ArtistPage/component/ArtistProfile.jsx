@@ -7,7 +7,7 @@ const ArtistProfile = ({ artist }) => {
       <img src={artist?.image} alt={artist?.name} />
       <div className="artist-infos">
         <div className="name">{artist?.name}</div>
-        <span className="follower">{artist?.followers}</span>
+        <span className="follower"> Followers {artist?.followers}</span>
       </div>
     </div>
   );
