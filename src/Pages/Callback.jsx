@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router";
-import api from "../Api";
+import api from "../app/api";
 import { useNavigate } from "react-router-dom";
 
 import { authActions } from "../redux/authSlice";
+import { userActions } from "../redux/userSlice";
 import "./Callback.scss";
 import { LetterAnimation } from "../Components";
 
@@ -16,18 +17,17 @@ export const Callback = () => {
   const urlParams = new Map();
   const paramArray = params.hash.split("&");
 
-  paramArray?.forEach((param) =>
-    urlParams.set(param.split("=")[0], param.split("=")[1])
-  );
+  paramArray?.forEach((param) => urlParams.set(param.split("=")[0], param.split("=")[1]));
 
   useEffect(() => {
     api.setDefaultToken(urlParams.get("#access_token"));
     dispatch(authActions.setToken({ token: urlParams.get("#access_token") }));
-    api.getCurrentUser();
     dispatch(authActions.loadProfile());
+    dispatch(userActions.loadFavoriteArtists());
+    dispatch(userActions.loadFavoriteTracks());
 
     setTimeout(() => {
-      navigate("/dashboard");
+      navigate("/");
     }, 1000);
   }, []);
 
