@@ -1,7 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import api from "../../app/api";
+import { appActions } from "../../redux/appSlice";
 import "./SearchInput.scss";
 
-const SearchInput = (props) => {
+const SearchInput = () => {
+  const dispatch = useDispatch();
+
+  const handleSearch = (value) => {
+    dispatch(appActions.setSearchKey(value));
+    api.searchArtists(value).then((result) => dispatch(appActions.setSearchResult(result)));
+  };
+
   return (
     <div className="search-box">
       <button className="btn-search">
@@ -11,7 +21,7 @@ const SearchInput = (props) => {
         type="text"
         className="input-search"
         placeholder="Search an artist..."
-        onKeyDown={(e) => e.key === "Enter" && props.onSearch(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleSearch(e.target.value)}
       />
     </div>
   );
