@@ -1,23 +1,26 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import api from "../Api.js";
+import api from "../app/api.js";
 
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
-    isAuth: false,
+    isAuth: !!localStorage.getItem("token"),
     errorMessage: "",
     displayName: "",
     image: "",
-    token: "",
+    token: localStorage.getItem("token") || "",
   },
   reducers: {
     logout: (state) => {
       state.isAuth = false;
       state.displayName = "";
       state.image = "";
+      state.token = "";
+      localStorage.setItem("token", "");
     },
     setToken: (state, action) => {
       state.token = action.payload.token;
+      localStorage.setItem("token", state.token);
     },
   },
   extraReducers: (builder) => {
@@ -29,11 +32,16 @@ export const authSlice = createSlice({
     });
     builder.addCase(loadProfile.rejected, (state, action) => {
       console.log(action);
-      state.isAuth = false;
       state.errorMessage = "Authentication is failed";
+      state.isAuth = false;
+      state.displayName = "";
+      state.image = "";
+      state.token = "";
+      localStorage.setItem("token", "");
     });
   },
 });
+
 const loadProfile = createAsyncThunk("auth/getCurrentUser", async () => {
   const response = await api.getCurrentUser();
   return response;
