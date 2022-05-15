@@ -2,7 +2,7 @@
 
 it is an app to display an artist's albums via the Spotify API.
 
-[Demo](https://thriving-cheesecake-af8741.netlify.app/login)
+[Demo]("https://thriving-cheesecake-af8741.netlify.app/login")
 
 ### Instructions
 
