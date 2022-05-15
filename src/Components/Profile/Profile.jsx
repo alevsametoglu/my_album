@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { authActions } from "../../redux/authSlice";
 import { userActions } from "../../redux/userSlice";
 import "./Profile.scss";
+import { appSlice } from "../../redux/appSlice";
 
 const Profile = () => {
   const authState = useSelector((s) => s.auth);
@@ -15,6 +16,7 @@ const Profile = () => {
     dispatch(userActions.clearUserInfo());
     navigate("/");
   };
+
   return (
     <div className="profile">
       <div className="profile-info">
