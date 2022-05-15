@@ -1,18 +1,25 @@
 import React from "react";
 import "./Track.scss";
-import listen from "./listen.jpeg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { appActions } from "../../redux/appSlice";
+const Track = ({ image, uri, duration, name, artistName, albumName }) => {
+  const appState = useSelector((store) => store.app);
+  const dispatch = useDispatch();
 
-const Track = ({ name, onClick }) => {
-  const authState = useSelector((store) => store.auth);
-  console.log(authState.token);
-
+  const playTrack = () => {
+    dispatch(appActions.selectTrack(uri));
+  };
   return (
-    <div onClick={onClick} className="track">
-      <img src={listen} alt="" />
+    <div className="track" onClick={playTrack}>
+      <img src={image} alt="" />
       <div className="title">
-        <p>{name}</p>
+        <span style={{ fontWeight: "bold", color: appState.selectedTrackUri === uri ? "green" : undefined }}>{name}</span>
+        <span style={{ fontSize: 14 }}>{artistName}</span>
       </div>
+      <div style={{ flexGrow: 1 }} />
+
+      <div style={{ width: 400 }}>{albumName}</div>
+      <div>{duration}</div>
     </div>
   );
 };
