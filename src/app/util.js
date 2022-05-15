@@ -24,10 +24,28 @@ const getAlbumsFromItems = (items) => {
   }));
 };
 
+const scrollFunction = (element, event) => {
+  event.preventDefault();
+  element.scrollBy({
+    left: event.deltaY < 0 ? -30 : 30,
+  });
+};
+
+const addScrollXEventListener = () => {
+  const element = document.querySelector("#scroll-x");
+  element.addEventListener("wheel", (event) => scrollFunction(element, event));
+};
+const removeScrollXEventListener = () => {
+  const element = document.querySelector("#scroll-x");
+  element.removeEventListener("wheel", (event) => scrollFunction(element, event));
+};
+
 export const util = {
   getAlbumsFromItems,
   getArtistsFromItems,
   getTracksFromItems,
+  addScrollXEventListener,
+  removeScrollXEventListener,
 };
 
 const msToMinuteString = (valueMs) => {
