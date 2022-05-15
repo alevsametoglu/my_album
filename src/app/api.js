@@ -33,13 +33,7 @@ const searchArtists = (searchKey) => {
     .get("https://api.spotify.com/v1/search", {
       params: { q: searchKey, type: "artist" },
     })
-    .then((response) => {
-      return response.data.artists.items.map((artist) => ({
-        id: artist.id,
-        name: artist.name,
-        image: artist.images?.[0]?.url,
-      }));
-    })
+    .then((response) => util.getArtistsFromItems(response.data.artists.items))
     .catch((x) => {
       throw x.response.data.error;
     });
